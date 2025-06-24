@@ -48,14 +48,41 @@ from datetime import datetime
 # print(f"{nome} nasceu em {dataFormat.day} de {mes} de {dataFormat.year}.")
 
 #TODO 07
-frase = input("Digite uma frase: ").lower()
+# frase = input("Digite uma frase: ").lower()
 
-espacos = frase.count(" ")
+# espacos = frase.count(" ")
 
-vogais = "aeiou"
-contagem = {vogal: frase.count(vogal) for vogal in vogais}
+# vogais = "aeiou"
+# contagem = {vogal: frase.count(vogal) for vogal in vogais}
 
-print(f"Quantidade de espaços em branco: {espacos}")
-print("Frequência das vogais:")
-for vogal, quantidade in contagem.items():
-    print(f"{vogal}: {quantidade}")
+# print(f"Quantidade de espaços em branco: {espacos}")
+# print("Frequência das vogais:")
+# for vogal, quantidade in contagem.items():
+#     print(f"{vogal}: {quantidade}")
+
+#TODO 13
+import random
+
+palavras = ["banana", "computador", "elefante", "brasil", "cachorro", "telefone"]
+
+palavra_correta = random.choice(palavras).lower()
+
+letras = list(palavra_correta)
+random.shuffle(letras)
+palavra_embaralhada = ''.join(letras)
+
+print("Bem-vindo ao Jogo da Palavra Embaralhada!")
+print(f"Adivinhe a palavra: {palavra_embaralhada}")
+
+tentativas = 6
+acertou = False
+
+for i in range(1, tentativas + 1):
+    palpite = input(f"Tentativa {i}/{tentativas}: ").strip().lower()
+    if palpite == palavra_correta:
+        print("Parabéns! Você acertou a palavra!")
+        acertou = True
+        break
+
+if not acertou:
+    print(f"Que pena! Você perdeu. A palavra correta era: {palavra_correta}")
